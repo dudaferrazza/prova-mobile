@@ -43,5 +43,25 @@ class MainActivity : AppCompatActivity() {
             contador++
             txtContador.text = contador.toString()
         }
+
+        btnFinalizar.setOnClickListener {
+
+            val fim = System.currentTimeMillis()
+            val tempoTotal = fim - inicio
+            val taktTime =
+                if (contador > 0)
+                    (tempoTotal / 1000.0) / contador
+                else
+                    0.0
+
+            val intent = Intent(this, RelatorioActivity::class.java)
+            intent.putExtra("linha", edtLinha.text.toString())
+            intent.putExtra("operador", edtOperador.text.toString())
+            intent.putExtra("contador", contador)
+            intent.putExtra("tempoTotal", tempoTotal)
+            intent.putExtra("taktTime", taktTime)
+            startActivity(intent)
+
+        }
     }
 }
