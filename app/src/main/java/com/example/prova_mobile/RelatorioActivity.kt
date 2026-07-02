@@ -14,5 +14,14 @@ class RelatorioActivity : AppCompatActivity() {
         setContentView(R.layout.activity_relatorio)
 
         txtResultado = findViewById(R.id.txtResultado)
+
+        val linha = intent.getStringExtra("linha") ?: ""
+        val operador = intent.getStringExtra("operador") ?: ""
+        val contador = intent.getIntExtra("contador", 0)
+        val tempoTotal = intent.getLongExtra("tempoTotal", 0)
+        val taktTime = intent.getDoubleExtra("taktTime", 0.0)
+
+        val minutos = tempoTotal / 1000 / 60
+        val segundos = (tempoTotal / 1000) % 60
     }
 }
