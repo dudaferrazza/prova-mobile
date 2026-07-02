@@ -31,5 +31,12 @@ class MainActivity : AppCompatActivity() {
         btnFinalizar = findViewById(R.id.btnFinalizar)
 
         btnRegistrar.isEnabled = false
+
+        btnIniciar.setOnClickListener {
+            inicio = System.currentTimeMillis()
+            edtLinha.isEnabled = false
+            edtOperador.isEnabled = false
+            btnRegistrar.isEnabled = true
+        }
     }
 }
