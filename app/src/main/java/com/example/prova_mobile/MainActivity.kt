@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnFinalizar.setOnClickListener {
-
             val fim = System.currentTimeMillis()
             val tempoTotal = fim - inicio
             val taktTime =
@@ -61,7 +60,17 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("tempoTotal", tempoTotal)
             intent.putExtra("taktTime", taktTime)
             startActivity(intent)
-
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        contador = 0
+        txtContador.text = "0"
+        edtLinha.isEnabled = true
+        edtOperador.isEnabled = true
+        edtLinha.text?.clear()
+        edtOperador.text?.clear()
+        btnRegistrar.isEnabled = false
     }
 }
