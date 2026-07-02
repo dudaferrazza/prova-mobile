@@ -23,5 +23,26 @@ class RelatorioActivity : AppCompatActivity() {
 
         val minutos = tempoTotal / 1000 / 60
         val segundos = (tempoTotal / 1000) % 60
+
+        val relatorio = """
+            RELATÓRIO ESTATÍSTICO OEE
+            
+            Linha:
+            ${linha.uppercase()}
+            
+            Operador:
+            ${operador.uppercase()}
+            
+            Quantidade de peças:
+            $contador
+            
+            Tempo Total:
+            ${minutos} min ${segundos} s
+            
+            Takt Time:
+            ${String.format(Locale.US, "%.2f", taktTime)} segundos/peça
+        """.trimIndent()
+
+        txtResultado.text = relatorio
     }
 }
