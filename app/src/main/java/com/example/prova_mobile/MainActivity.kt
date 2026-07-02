@@ -38,5 +38,10 @@ class MainActivity : AppCompatActivity() {
             edtOperador.isEnabled = false
             btnRegistrar.isEnabled = true
         }
+
+        btnRegistrar.setOnClickListener {
+            contador++
+            txtContador.text = contador.toString()
+        }
     }
 }
